@@ -1,33 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Online Currency Converter</title>
-      <link rel="stylesheet" href="./style/style.css">
-</head>
-<body>
-      <nav>
-            <div class="logo">
-                  <img src="./img/logo.svg">
-            </div>
-            <ul class="nav-body">
-                  <li><a href="#">БАНК</a></li>
-                  <li><a href="#">БИЗНЕС</a></li>
-                  <li><a href="#">ИНВЕСТИЦИИ</a></li>
-                  <li><a href="#">СТРАХОВАНИЕ</a></li>
-                  <li><a href="#">МОБАЙЛ</a></li>
-                  <li><a href="#">ПУТЕШЕСТВИЯ</a></li>
-                  <li><a href="#">РАЗВЛЕЧЕНИЯ</a></li>
-            </ul>
-            <div class="nav-buttons">
-                  <button>ВОЙТИ</button>
-            </div>
-      </nav>
-      <main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Currency Converter</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="./img/logo.svg" />
+      </div>
+      <ul class="nav-body">
+        <li><a href="#">БАНК</a></li>
+        <li><a href="#">БИЗНЕС</a></li>
+        <li><a href="#">ИНВЕСТИЦИИ</a></li>
+        <li><a href="#">СТРАХОВАНИЕ</a></li>
+        <li><a href="#">МОБАЙЛ</a></li>
+        <li><a href="#">ПУТЕШЕСТВИЯ</a></li>
+        <li><a href="#">РАЗВЛЕЧЕНИЯ</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <button>ВОЙТИ</button>
+      </div>
+    </nav>
+    <main class="container">
+      <h1>Currency converter online</h1>
 
-      </main>
-      <script src="./js/app.js"></script>
-</body>
+      <article>
+        <div class="a-block">
+          <div class="a-item">
+            <h4>У меня есть</h4>
+            <ul class="ul-from">
+              <li class="li-from">RUB</li>
+              <li class="li-from">USD</li>
+              <li class="li-from">EUR</li>
+              <li class="li-from">GBP</li>
+            </ul>
+            <div class="input">
+              <form class="from-form">
+                <input class="from-input" type="text" required />
+              </form>
+              <p class="from-p"></p>
+            </div>
+          </div>
+          <div class="a-item">
+            <h4>Хочу приобрести</h4>
+            <ul class="ul-to">
+              <li class="li-to">RUB</li>
+              <li class="li-to">USD</li>
+              <li class="li-to">EUR</li>
+              <li class="li-to">GBP</li>
+            </ul>
+            <div class="input">
+              <form>
+                <input class="to-input" type="number" required />
+              </form>
+              <p class="to-p"></p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+    <script src="./js/app.js"></script>
+  </body>
 </html>

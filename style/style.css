@@ -1,20 +1,146 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
       padding: 0;
       margin: 0;
       box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
 }
-a{
+
+a {
       text-decoration: none;
       color: black;
 }
+
+button {
+      border: none;
+      cursor: pointer;
+}
+
 ul {
       list-style: none;
 }
+
+.container {
+      width: 60%;
+      margin: auto;
+}
+
 /* Navbar */
-nav{
+nav {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      padding: 15px 100px;
+      background-color: #F5F5F6;
 }
-nav ul{
+
+nav ul {
       display: flex;
+      gap: 20px;
+}
+
+nav ul li a {
+      color: #959BA4;
+      font-weight: 500;
+}
+
+nav ul li a:hover {
+      color: black;
+}
+
+.nav-buttons button {
+      padding: 12px 25px;
+      background-color: #fff;
+      font-weight: 500;
+      border-radius: 5px;
+}
+
+/* Main */
+main {
+      padding-top: 70px;
+      padding-bottom: 70px;
+}
+
+main h1 {
+      font-size: 50px;
+      margin-bottom: 50px;
+}
+
+.a-block {
+      display: flex;
+      gap: 140px;
+}
+
+.a-item h4 {
+      margin-bottom: 10px;
+      color: #9F9F9F;
+}
+
+.a-item ul {
+      display: flex;
+      width: 350px;
+      margin-bottom: 20px;
+}
+
+.a-item ul li {
+      padding: 13px 40.5px;
+      border: 1px solid #E5E5E5;
+      cursor: pointer;
+}
+.a-item ul li.active{
+      background-color: #833AE0;
+      border-color: #833AE0;
+      color: #fff;
+}
+
+.a-item ul li:first-child{
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+}
+.a-item ul li:last-child{
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+}
+.input{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #E5E5E5;
+      width: 450px;
+      height: 150px;
+      padding: 14px 12px;
+      border-radius: 5px;
+}
+.input p{
+      font-weight: 400;
+      color:#C6C6C6;
+}
+form input {
+     width: 100%;
+     border: none;
+     font-size: 36px;
+     padding: 14px 11px;
+     height: 100px;
+     font-weight: 700;
+}
+form input:focus{
+      outline: none;
+}
+@media (max-width: 900px) {
+      .container{
+            width: 80%;
+      }
+      nav {
+            gap: 50px;
+      }
+
+      nav ul {
+            display: none;
+      }
+      .a-block{
+            flex-direction: column;
+            gap: 70px;
+      }
+
 }

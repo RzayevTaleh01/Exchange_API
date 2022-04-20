@@ -5,18 +5,17 @@ let toInput = document.querySelector(".to-input");
 let form = document.querySelector(".from-form");
 let fromP = document.querySelector(".from-p");
 let toP = document.querySelector(".to-p");
-let from = "RUB";
-let to = "USD";
+let from = "RUB",
+  to = "USD";
 eventListeners();
-
 function eventListeners() {
   ulFrom.addEventListener("click", fromValue);
   ulTo.addEventListener("click", toValue);
   fromInput.addEventListener("keyup", getData);
   form.addEventListener("submit", getData);
   ulTo.addEventListener("click", getData);
+  ulFrom.addEventListener("click", getData);
 }
-
 function getData(e) {
   let out;
   e.preventDefault();
@@ -32,10 +31,10 @@ function getData(e) {
     });
 }
 function fromValue(e) {
-  toInput.value = "";
-  fromInput.value = "";
   if (e.target.className === "li-from") {
     from = e.target.innerText;
+    checkli(".ul-from");
+    e.target.classList.add('active');
   }
   e.preventDefault();
   console.log(from);
@@ -44,6 +43,8 @@ function fromValue(e) {
 function toValue(e) {
   if (e.target.className === "li-to") {
     to = e.target.innerText;
+    checkli(".ul-to");
+    e.target.classList.add('active');
   }
   e.preventDefault();
   console.log(to);
@@ -53,4 +54,10 @@ function calc(value, from) {
   console.log(value);
   console.log(value * from);
   toInput.value = value * from;
+}
+function checkli(className) {
+  let allLi = document.querySelectorAll(`${className} li`);
+  allLi.forEach((item) => {
+    item.classList.remove("active");
+  });
 }

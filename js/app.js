@@ -1,9 +1,7 @@
 let ulFrom = document.querySelector(".ul-from");
 let ulFromLi = document.querySelectorAll(".ul-from li");
-
 let ulTo = document.querySelector(".ul-to");
 let ulToLi = document.querySelectorAll(".ul-to li");
-
 let fromInput = document.querySelector(".from-input");
 let toInput = document.querySelector(".to-input");
 let form = document.querySelector(".from-form");
@@ -11,9 +9,10 @@ let fromP = document.querySelector(".from-p");
 let toP = document.querySelector(".to-p");
 let from = "RUB",
   to = "USD";
+fromInput.value = 1;
 
 eventListeners();
-checkLi()
+checkLi();
 
 function eventListeners() {
   ulFrom.addEventListener("click", fromValue);
@@ -36,9 +35,10 @@ function getData(e) {
       out = Object.values(data.rates)[0];
       fromP.innerText = `1 ${from} = ${out} ${to}`;
       toP.innerText = `1 ${to} = ${1 / out} ${from}`;
-      calc(out, fromInput.value);
+      calc(out);
     });
 }
+
 function fromValue(e) {
   if (e.target.className === "li-from") {
     from = e.target.innerText;
@@ -55,9 +55,10 @@ function toValue(e) {
   e.preventDefault();
 }
 
-function calc(value, from) {
-  toInput.value = value * from;
+function calc(out) {
+  toInput.value = out * fromInput.value;
 }
+
 function checkLi() {
   ulFromLi.forEach((item) => {
     item.classList.remove("active");

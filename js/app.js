@@ -56,7 +56,7 @@ function toValue(e) {
 }
 
 function calc(out) {
-  toInput.value = out * fromInput.value;
+  toInput.value = (out * fromInput.value).toFixed(4);
 }
 
 function checkLi() {

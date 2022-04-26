@@ -18,7 +18,6 @@ function eventListeners() {
   ulFrom.addEventListener("click", fromValue);
   ulTo.addEventListener("click", toValue);
   fromInput.addEventListener("keyup", getData);
-  form.addEventListener("submit", getData);
   ulTo.addEventListener("click", getData);
   ulFrom.addEventListener("click", getData);
   document.addEventListener("DOMContentLoaded", getData);
@@ -31,15 +30,16 @@ function getData(e) {
     .then((response) => {
       return response.json();
     })
-   
+
     .then((data) => {
       out = Object.values(data.rates)[0];
       fromP.innerText = `1 ${from} = ${out} ${to}`;
       toP.innerText = `1 ${to} = ${1 / out} ${from}`;
       calc(out);
-    }).catch((err) =>{
-      alert(err.message)
     })
+    .catch((err) => {
+      alert(err.message);
+    });
 }
 
 function fromValue(e) {
@@ -59,11 +59,9 @@ function toValue(e) {
   }
   e.preventDefault();
 }
-
 function calc(out) {
   toInput.value = (out * fromInput.value).toFixed(2);
 }
-
 function checkLi() {
   ulFromLi.forEach((item) => {
     item.classList.remove("active");

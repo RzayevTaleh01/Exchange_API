@@ -9,7 +9,7 @@ let fromP = document.querySelector(".from-p");
 let toP = document.querySelector(".to-p");
 let from = "RUB",
   to = "USD";
-fromInput.value = 1;
+fromInput.value = 100;
 
 eventListeners();
 checkLi();
@@ -31,17 +31,21 @@ function getData(e) {
     .then((response) => {
       return response.json();
     })
+   
     .then((data) => {
       out = Object.values(data.rates)[0];
       fromP.innerText = `1 ${from} = ${out} ${to}`;
       toP.innerText = `1 ${to} = ${1 / out} ${from}`;
       calc(out);
-    });
+    }).catch((err) =>{
+      alert(err.message)
+    })
 }
 
 function fromValue(e) {
   if (e.target.className === "li-from") {
     from = e.target.innerText;
+    console.log(from);
     checkLi();
   }
   e.preventDefault();
@@ -50,13 +54,14 @@ function fromValue(e) {
 function toValue(e) {
   if (e.target.className === "li-to") {
     to = e.target.innerText;
+    console.log(to);
     checkLi();
   }
   e.preventDefault();
 }
 
 function calc(out) {
-  toInput.value = (out * fromInput.value).toFixed(4);
+  toInput.value = (out * fromInput.value).toFixed(2);
 }
 
 function checkLi() {

@@ -26,19 +26,18 @@ function eventListeners() {
 function getData(e) {
   let out;
   e.preventDefault();
-  fetch(`https://api.exchangerate.host/latest?base=${from}&symbols=${to}`)
+  fetch(`https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_nfozWjag1DZ7LnYeaA3YaIofxyWUfXN5qBa9Kr3v&currencies=${to}&base_currency=${from}`)
     .then((response) => {
       return response.json();
     })
 
     .then((data) => {
-      out = Object.values(data.rates)[0];
+      out = Object.values(data.data)[0];
       fromP.innerText = `1 ${from} = ${out} ${to}`;
       toP.innerText = `1 ${to} = ${1 / out} ${from}`;
       calc(out);
     })
     .catch((err) => {
-      alert(err.message);
     });
 }
 
